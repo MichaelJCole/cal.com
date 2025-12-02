@@ -1,4 +1,4 @@
-CREATE OR REPLACE VIEW public."BookingTimeStatusDenormalized" AS
+CREATE OR REPLACE VIEW "BookingTimeStatusDenormalized" AS
 SELECT 
     *,
     CASE
@@ -8,4 +8,4 @@ SELECT
         WHEN "endTime" > now() THEN 'uncompleted'
         ELSE NULL
     END as "timeStatus"
-FROM public."BookingDenormalized";
+FROM "BookingDenormalized";

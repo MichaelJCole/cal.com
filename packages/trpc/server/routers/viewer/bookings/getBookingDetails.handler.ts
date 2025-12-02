@@ -29,6 +29,15 @@ export const getBookingDetailsHandler = async ({ ctx, input }: GetBookingDetails
       rescheduled: true,
       fromReschedule: true,
       status: true,
+      tracking: {
+        select: {
+          utm_source: true,
+          utm_medium: true,
+          utm_campaign: true,
+          utm_term: true,
+          utm_content: true,
+        },
+      },
       eventType: {
         select: {
           teamId: true,
@@ -140,5 +149,6 @@ export const getBookingDetailsHandler = async ({ ctx, input }: GetBookingDetails
   return {
     rescheduledToBooking,
     previousBooking,
+    tracking: booking.tracking,
   };
 };

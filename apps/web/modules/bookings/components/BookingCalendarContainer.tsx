@@ -38,6 +38,7 @@ interface BookingCalendarContainerProps {
   permissions: {
     canReadOthersBookings: boolean;
   };
+  bookingsV3Enabled: boolean;
 }
 
 interface BookingCalendarInnerProps extends BookingCalendarContainerProps {
@@ -55,6 +56,7 @@ interface BookingCalendarInnerProps extends BookingCalendarContainerProps {
 function BookingCalendarInner({
   status,
   permissions,
+  bookingsV3Enabled,
   data,
   allowedFilterIds,
   hasError,
@@ -134,7 +136,7 @@ function BookingCalendarInner({
               <Icon name="chevron-right" className="h-4 w-4" />
             </Button>
           </ButtonGroup>
-          <ViewToggleButton />
+          <ViewToggleButton bookingsV3Enabled={bookingsV3Enabled} />
         </div>
       </div>
       {hasError && ErrorView ? (
